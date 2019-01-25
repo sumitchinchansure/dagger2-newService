@@ -13,7 +13,7 @@ public class AccelarateService implements Accelarate{
 
 	public void speedUp() {
 
-		System.out.println("BRHUUUMMM..!!!");
+		System.out.println("SPEEDDDDD..!!!");
 	}
 
 }

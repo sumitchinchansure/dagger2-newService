@@ -8,7 +8,7 @@ import com.hr.dagger.component.DaggerDriverComponent;
 import com.hr.dagger.component.DriverComponent;
 
 /**
- * Hello world!
+ * Main App file
  *
  */
 public class App
