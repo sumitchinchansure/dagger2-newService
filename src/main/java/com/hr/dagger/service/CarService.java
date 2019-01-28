@@ -6,7 +6,9 @@ import com.hr.dagger.interfaces.Car;
 
 public class CarService implements Car {
 
+	@Inject DriverService driver;
 	@Inject AccelarateService accelerate;
+	@Inject BreakService breakk;
 
 	@Inject
 	public CarService(){
@@ -15,7 +17,9 @@ public class CarService implements Car {
 
 	public void runCar(){
 
+		driver.driveCar();
 		accelerate.speedUp();
+		breakk.applyBreak();
 	}
 
 

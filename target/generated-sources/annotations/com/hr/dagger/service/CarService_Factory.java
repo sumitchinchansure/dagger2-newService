@@ -9,21 +9,35 @@ import javax.inject.Provider;
   comments = "https://google.github.io/dagger"
 )
 public final class CarService_Factory implements Factory<CarService> {
+  private final Provider<DriverService> driverProvider;
+
   private final Provider<AccelarateService> accelerateProvider;
 
-  public CarService_Factory(Provider<AccelarateService> accelerateProvider) {
+  private final Provider<BreakService> breakkProvider;
+
+  public CarService_Factory(
+      Provider<DriverService> driverProvider,
+      Provider<AccelarateService> accelerateProvider,
+      Provider<BreakService> breakkProvider) {
+    this.driverProvider = driverProvider;
     this.accelerateProvider = accelerateProvider;
+    this.breakkProvider = breakkProvider;
   }
 
   @Override
   public CarService get() {
     CarService instance = new CarService();
+    CarService_MembersInjector.injectDriver(instance, driverProvider.get());
     CarService_MembersInjector.injectAccelerate(instance, accelerateProvider.get());
+    CarService_MembersInjector.injectBreakk(instance, breakkProvider.get());
     return instance;
   }
 
-  public static Factory<CarService> create(Provider<AccelarateService> accelerateProvider) {
-    return new CarService_Factory(accelerateProvider);
+  public static Factory<CarService> create(
+      Provider<DriverService> driverProvider,
+      Provider<AccelarateService> accelerateProvider,
+      Provider<BreakService> breakkProvider) {
+    return new CarService_Factory(driverProvider, accelerateProvider, breakkProvider);
   }
 
   public static CarService newCarService() {

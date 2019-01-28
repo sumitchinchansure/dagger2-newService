@@ -2,9 +2,11 @@ package com.hr.dagger.component;
 
 import com.hr.dagger.modules.ProviderModule;
 import com.hr.dagger.service.AccelarateService;
+import com.hr.dagger.service.BreakService;
 import com.hr.dagger.service.CarService;
 import com.hr.dagger.service.CarService_Factory;
 import com.hr.dagger.service.CarService_MembersInjector;
+import com.hr.dagger.service.DriverService;
 import dagger.internal.Preconditions;
 import javax.annotation.Generated;
 
@@ -29,7 +31,9 @@ public final class DaggerCarComponent implements CarComponent {
   }
 
   private CarService injectCarService(CarService instance) {
+    CarService_MembersInjector.injectDriver(instance, new DriverService());
     CarService_MembersInjector.injectAccelerate(instance, new AccelarateService());
+    CarService_MembersInjector.injectBreakk(instance, new BreakService());
     return instance;
   }
 

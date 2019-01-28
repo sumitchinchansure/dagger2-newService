@@ -2,12 +2,8 @@ package com.hr.dagger.modules;
 
 import javax.inject.Singleton;
 
-import com.hr.dagger.interfaces.Accelarate;
-import com.hr.dagger.interfaces.Car;
-import com.hr.dagger.interfaces.Driver;
-import com.hr.dagger.service.AccelarateService;
-import com.hr.dagger.service.CarService;
-import com.hr.dagger.service.DriverService;
+import com.hr.dagger.interfaces.Break;
+import com.hr.dagger.service.BreakService;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,22 +11,28 @@ import dagger.Provides;
 @Module
 public class ProviderModule {
 
-	@Provides
+	/*@Provides
 	@Singleton
-	public Accelarate accelerate() {
+	public Accelarate accelerater() {
 		return new AccelarateService();
-	}
+	}*/
 
-	@Provides
+	/*@Provides
 	@Singleton
 	public Car car() {
 		return new CarService();
-	}
+	}*/
 
 	@Provides
 	@Singleton
-	public Driver drive() {
-		return new DriverService();
+	public Break breakk() {
+		return new BreakService();
 	}
+
+	/*@Provides
+	@Singleton
+	public Driver driver() {
+		return new DriverService();
+	}*/
 
 }
