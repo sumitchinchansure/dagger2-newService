@@ -1,5 +1,6 @@
 package com.hr.dagger.service;
 
+import com.hr.dagger.interfaces.Break;
 import dagger.MembersInjector;
 import javax.annotation.Generated;
 import javax.inject.Provider;
@@ -13,12 +14,12 @@ public final class CarService_MembersInjector implements MembersInjector<CarServ
 
   private final Provider<AccelarateService> accelerateProvider;
 
-  private final Provider<BreakService> breakkProvider;
+  private final Provider<Break> breakkProvider;
 
   public CarService_MembersInjector(
       Provider<DriverService> driverProvider,
       Provider<AccelarateService> accelerateProvider,
-      Provider<BreakService> breakkProvider) {
+      Provider<Break> breakkProvider) {
     this.driverProvider = driverProvider;
     this.accelerateProvider = accelerateProvider;
     this.breakkProvider = breakkProvider;
@@ -27,7 +28,7 @@ public final class CarService_MembersInjector implements MembersInjector<CarServ
   public static MembersInjector<CarService> create(
       Provider<DriverService> driverProvider,
       Provider<AccelarateService> accelerateProvider,
-      Provider<BreakService> breakkProvider) {
+      Provider<Break> breakkProvider) {
     return new CarService_MembersInjector(driverProvider, accelerateProvider, breakkProvider);
   }
 
@@ -46,7 +47,7 @@ public final class CarService_MembersInjector implements MembersInjector<CarServ
     instance.accelerate = accelerate;
   }
 
-  public static void injectBreakk(CarService instance, BreakService breakk) {
+  public static void injectBreakk(CarService instance, Break breakk) {
     instance.breakk = breakk;
   }
 }

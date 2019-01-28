@@ -1,21 +1,28 @@
 package com.hr.dagger.component;
 
-import com.hr.dagger.modules.ProviderModule;
+import com.hr.dagger.interfaces.Break;
+import com.hr.dagger.modules.InsanceProviderModule;
+import com.hr.dagger.modules.InsanceProviderModule_BreakkFactory;
 import com.hr.dagger.service.AccelarateService;
-import com.hr.dagger.service.BreakService;
 import com.hr.dagger.service.CarService;
 import com.hr.dagger.service.CarService_Factory;
 import com.hr.dagger.service.CarService_MembersInjector;
 import com.hr.dagger.service.DriverService;
+import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 import javax.annotation.Generated;
+import javax.inject.Provider;
 
 @Generated(
   value = "dagger.internal.codegen.ComponentProcessor",
   comments = "https://google.github.io/dagger"
 )
 public final class DaggerCarComponent implements CarComponent {
-  private DaggerCarComponent(Builder builder) {}
+  private Provider<Break> breakkProvider;
+
+  private DaggerCarComponent(Builder builder) {
+    initialize(builder);
+  }
 
   public static Builder builder() {
     return new Builder();
@@ -23,6 +30,13 @@ public final class DaggerCarComponent implements CarComponent {
 
   public static CarComponent create() {
     return new Builder().build();
+  }
+
+  @SuppressWarnings("unchecked")
+  private void initialize(final Builder builder) {
+    this.breakkProvider =
+        DoubleCheck.provider(
+            InsanceProviderModule_BreakkFactory.create(builder.insanceProviderModule));
   }
 
   @Override
@@ -33,24 +47,24 @@ public final class DaggerCarComponent implements CarComponent {
   private CarService injectCarService(CarService instance) {
     CarService_MembersInjector.injectDriver(instance, new DriverService());
     CarService_MembersInjector.injectAccelerate(instance, new AccelarateService());
-    CarService_MembersInjector.injectBreakk(instance, new BreakService());
+    CarService_MembersInjector.injectBreakk(instance, breakkProvider.get());
     return instance;
   }
 
   public static final class Builder {
+    private InsanceProviderModule insanceProviderModule;
+
     private Builder() {}
 
     public CarComponent build() {
+      if (insanceProviderModule == null) {
+        this.insanceProviderModule = new InsanceProviderModule();
+      }
       return new DaggerCarComponent(this);
     }
 
-    /**
-     * @deprecated This module is declared, but an instance is not used in the component. This
-     *     method is a no-op. For more, see https://google.github.io/dagger/unused-modules.
-     */
-    @Deprecated
-    public Builder providerModule(ProviderModule providerModule) {
-      Preconditions.checkNotNull(providerModule);
+    public Builder insanceProviderModule(InsanceProviderModule insanceProviderModule) {
+      this.insanceProviderModule = Preconditions.checkNotNull(insanceProviderModule);
       return this;
     }
   }

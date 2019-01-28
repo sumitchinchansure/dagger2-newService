@@ -1,8 +1,12 @@
-D:\workspace\HelloDagger\src\main\java\com\hr\dagger\interfaces\Accelarate.java
 D:\workspace\HelloDagger\src\main\java\com\hr\dagger\service\AccelarateService.java
-D:\workspace\HelloDagger\src\main\java\com\hr\dagger\component\CarComponent.java
+D:\workspace\HelloDagger\src\main\java\com\hr\dagger\service\Handler.java
+D:\workspace\HelloDagger\src\main\java\com\hr\dagger\component\CarCompo.java
+D:\workspace\HelloDagger\src\main\java\com\hr\dagger\service\BreakService.java
 D:\workspace\HelloDagger\src\main\java\com\hr\dagger\service\CarService.java
-D:\workspace\HelloDagger\src\main\java\com\hr\dagger\modules\ProviderModule.java
-D:\workspace\HelloDagger\src\main\java\com\hr\dagger\component\AccelerateComponent.java
+D:\workspace\HelloDagger\src\main\java\com\hr\dagger\interfaces\Break.java
+D:\workspace\HelloDagger\src\main\java\com\hr\dagger\service\Response.java
+D:\workspace\HelloDagger\src\main\java\com\hr\dagger\service\ApiGatewayResponse.java
 D:\workspace\HelloDagger\src\main\java\com\hr\dagger\App.java
+D:\workspace\HelloDagger\src\main\java\com\hr\dagger\modules\InsanceProviderModule.java
 D:\workspace\HelloDagger\src\main\java\com\hr\dagger\interfaces\Car.java
+D:\workspace\HelloDagger\src\main\java\com\hr\dagger\service\DriverService.java

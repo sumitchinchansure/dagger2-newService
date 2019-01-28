@@ -1,5 +1,6 @@
 package com.hr.dagger.service;
 
+import com.hr.dagger.interfaces.Break;
 import dagger.internal.Factory;
 import javax.annotation.Generated;
 import javax.inject.Provider;
@@ -13,12 +14,12 @@ public final class CarService_Factory implements Factory<CarService> {
 
   private final Provider<AccelarateService> accelerateProvider;
 
-  private final Provider<BreakService> breakkProvider;
+  private final Provider<Break> breakkProvider;
 
   public CarService_Factory(
       Provider<DriverService> driverProvider,
       Provider<AccelarateService> accelerateProvider,
-      Provider<BreakService> breakkProvider) {
+      Provider<Break> breakkProvider) {
     this.driverProvider = driverProvider;
     this.accelerateProvider = accelerateProvider;
     this.breakkProvider = breakkProvider;
@@ -36,7 +37,7 @@ public final class CarService_Factory implements Factory<CarService> {
   public static Factory<CarService> create(
       Provider<DriverService> driverProvider,
       Provider<AccelarateService> accelerateProvider,
-      Provider<BreakService> breakkProvider) {
+      Provider<Break> breakkProvider) {
     return new CarService_Factory(driverProvider, accelerateProvider, breakkProvider);
   }
 
